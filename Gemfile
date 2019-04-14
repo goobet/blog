@@ -13,11 +13,13 @@ gem 'puma', '~> 3.11'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'graphiql-rails', '~> 1.7'
 end
 
 group :development do
+  gem 'faker', '~> 1.9', '>= 1.9.3'
+  gem 'graphiql-rails', '~> 1.7'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'pry-rails', '~> 0.3.9'
   gem 'rubocop', '~> 0.67.2', require: false
   gem 'rubocop-performance', '~> 1.1.0', require: false
 end
