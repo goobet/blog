@@ -33,5 +33,9 @@ module Blog
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Copy-Paste from https://gitlab.com/gitlab-org/gitlab-ce/blob/36c91555b9780092e92699368fbc794244407ef0/config/application.rb#L35
+    config.eager_load_paths.push("#{config.root}/app/graphql/mutations/concerns")
+    config.autoload_paths = config.eager_load_paths.dup
   end
 end
