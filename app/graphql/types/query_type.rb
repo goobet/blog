@@ -20,5 +20,17 @@ module Types
     def article(id:)
       Article.find(id)
     end
+
+    field :me, UserType, null: true
+
+    def me
+      current_user
+    end
+
+    private
+
+    def current_user
+      context[:current_user]
+    end
   end
 end

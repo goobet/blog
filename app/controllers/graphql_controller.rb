@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 class GraphqlController < ApplicationController
+  before_action :authenticate_api_user
+  # before_action :authenticate_user!
+
   def execute
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
-    }
     result = BlogSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   rescue StandardError => e
@@ -43,5 +42,21 @@ class GraphqlController < ApplicationController
 
     render json: { error: { message: error.message, backtrace: error.backtrace }, data: {} },
            status: :internal_server_error
+  end
+
+  def authenticate_api_user
+    aud = Warden::JWTAuth::EnvHelper.aud_header(request.env)
+    user = Warden::JWTAuth::UserDecoder.new.call(current_token, :user, aud)
+    sign_in(:user, user)
+  rescue JWT::DecodeError
+    nil
+  end
+
+  def current_token
+    Warden::JWTAuth::HeaderParser.from_env(request.env)
+  end
+
+  def context
+    { current_user: current_user, current_token: current_token }
   end
 end

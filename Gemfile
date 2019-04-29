@@ -7,6 +7,8 @@ ruby '2.6.2'
 
 gem 'rails', '~> 5.2.3'
 
+gem 'devise', '~> 4.6.2'
+gem 'devise-jwt', '~> 0.5.9'
 gem 'graphql', '~> 1.9', '>= 1.9.4'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
