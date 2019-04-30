@@ -7,10 +7,15 @@ module Types
 
     field :articles, [ArticleType], null: false do
       description 'All articles'
+      argument :limit, Int, required: false
+      argument :offset, Int, required: false
     end
 
-    def articles
+    def articles(limit: 20, offset: 0)
       Pundit.policy_scope(current_user, Article)
+            .order(:id)
+            .offset(offset)
+            .limit(limit)
     end
 
     field :article, ArticleType, null: true do
