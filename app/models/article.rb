@@ -5,4 +5,6 @@ class Article < ApplicationRecord
   validates :title, :content, presence: true
 
   scope :published, -> { where(published: true) }
+
+  mount_base64_uploader :image, ImageUploader
 end

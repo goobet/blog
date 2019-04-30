@@ -8,6 +8,7 @@ module Mutations
 
     argument :title, String, required: true
     argument :content, String, required: true
+    argument :image, String, required: false
 
     def resolve(article_attributes)
       article = Article.create(article_attributes.merge(author: current_user))

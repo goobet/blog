@@ -7,5 +7,6 @@ module Types
     field :content, String, null: false
     field :published, Boolean, null: false
     field :author, Types::UserType, null: false
+    field :image_url, String, null: false
   end
 end
