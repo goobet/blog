@@ -9,11 +9,13 @@ module Types
     field :image_url, String, null: false
     field :author, Types::UserType, null: false, preload: :author
     field :comments, [Types::CommentType], null: false, preload: :comments do
-      argument :limit, Int, required: false
-      argument :offset, Int, required: false
+      argument :limit, Int, required: false, default_value: 20
+      argument :offset, Int, required: false, default_value: 0
+
+      complexity ->(_ctx, args, child_complexity) { args[:limit] * child_complexity }
     end
 
-    def comments(limit: 20, offset: 0)
+    def comments(limit:, offset:)
       object.comments
             .order(:id)
             .offset(offset)
