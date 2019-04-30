@@ -3,6 +3,7 @@
 module Mutations
   module ErrorsHandling
     extend ActiveSupport::Concern
+    UNAUTHORIZED_MESSAGE = 'Unauthorized'
 
     included do
       field :errors, [Types::ValidationErrorType], null: false
@@ -16,6 +17,10 @@ module Mutations
       end
 
       { errors: prepared_errors }
+    end
+
+    def handle_unauthorized
+      { errors: [{ field: 'base', message: UNAUTHORIZED_MESSAGE }] }
     end
   end
 end

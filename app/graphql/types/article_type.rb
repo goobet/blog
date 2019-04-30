@@ -5,6 +5,7 @@ module Types
     field :id, ID, null: false
     field :title, String, null: false
     field :content, String, null: false
+    field :published, Boolean, null: false
     field :author, Types::UserType, null: false
   end
 end

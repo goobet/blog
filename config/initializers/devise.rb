@@ -5,6 +5,7 @@
 Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = Rails.application.secret_key_base
+    jwt.expiration_time = 42.days.to_i
   end
 
   # The secret key used by Devise. Devise uses this key to generate

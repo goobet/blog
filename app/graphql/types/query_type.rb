@@ -10,7 +10,7 @@ module Types
     end
 
     def articles
-      Article.all
+      Pundit.policy_scope(current_user, Article)
     end
 
     field :article, ArticleType, null: true do
@@ -18,7 +18,7 @@ module Types
     end
 
     def article(id:)
-      Article.find(id)
+      Pundit.policy_scope(current_user, Article).find(id)
     end
 
     field :me, UserType, null: true

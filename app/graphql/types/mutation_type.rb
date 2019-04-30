@@ -3,6 +3,7 @@
 module Types
   class MutationType < Types::BaseObject
     field :createArticle, mutation: Mutations::CreateArticle
+    field :updateArticle, mutation: Mutations::UpdateArticle
     field :signIn, mutation: Mutations::SignIn
     field :signUp, mutation: Mutations::SignUp
     field :signOut, mutation: Mutations::SignOut
