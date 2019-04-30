@@ -6,7 +6,8 @@ module Types
     field :title, String, null: false
     field :content, String, null: false
     field :published, Boolean, null: false
-    field :author, Types::UserType, null: false
     field :image_url, String, null: false
+    field :author, Types::UserType, null: false, preload: :author
+    field :comments, [Types::CommentType], null: false, preload: :comments
   end
 end
