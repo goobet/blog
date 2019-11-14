@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.3'
 
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64', '~> 2.8'
-gem 'devise', '~> 4.6.2'
+gem 'devise', '~> 4.7.1'
 gem 'devise-jwt', '~> 0.5.9'
 gem 'graphql', '~> 1.9', '>= 1.9.4'
 gem 'graphql-batch', '~> 0.4'
