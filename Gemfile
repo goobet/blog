@@ -15,7 +15,7 @@ gem 'graphql', '~> 1.9', '>= 1.9.4'
 gem 'graphql-batch', '~> 0.4'
 gem 'graphql-preload', '~> 2.1'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'pundit', '~> 2.0'
 
 group :development, :test do
