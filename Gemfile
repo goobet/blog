@@ -7,7 +7,7 @@ ruby '2.6.2'
 
 gem 'rails', '~> 5.2.3'
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'carrierwave-base64', '~> 2.8'
 gem 'devise', '~> 4.6.2'
 gem 'devise-jwt', '~> 0.5.9'
